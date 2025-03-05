@@ -20,7 +20,22 @@ export const createNotes= async(userId: string | Types.ObjectId, inputtext: stri
 
 export async function getNotes(userId: string | Types.ObjectId): Promise<any> {
   
-  let requestednotes= await notes.find({user:userId});
+  let requestednotes= await notes.find({user:userId}).sort({createdAt:-1});
+
     return requestednotes;
   }
+
+export async function updateNotes(noteId: string | Types.ObjectId, inputtext: string): Promise<any> {
+  if(typeof(noteId) === "string"){
+    noteId = new mongoose.Types.ObjectId(noteId);
+  }
+console.log("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!1111"+noteId);
+  const updatedNotes = await Notes.findByIdAndUpdate(
+    noteId,
+    {$set:{"text": inputtext}},
+  );
+
+  return updatedNotes;
+
+}
   

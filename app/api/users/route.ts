@@ -23,8 +23,6 @@ export const POST=async(request:Request)=>{
 
         body.password=await hash(body.password,10);
 
-        console.log(body.password);
-
         const newUser=new User(body);
         await newUser.save();
 
