@@ -29,7 +29,7 @@ export async function updateNotes(noteId: string | Types.ObjectId, inputtext: st
   if(typeof(noteId) === "string"){
     noteId = new mongoose.Types.ObjectId(noteId);
   }
-console.log("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!1111"+noteId);
+console.log(noteId);
   const updatedNotes = await Notes.findByIdAndUpdate(
     noteId,
     {$set:{"text": inputtext}},
@@ -38,4 +38,3 @@ console.log("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!1111"+noteId);
   return updatedNotes;
 
 }
-  
