@@ -51,7 +51,7 @@ const Page = () => {
 async function logedinCheck(token: string) {
   let islogedin = false;
 
-  const res = await fetch("https://note-site-gules.vercel.app/api/logedinCheck", {
+  const res = await fetch("/api/logedinCheck", {
     method: "GET",
     headers: {
       'Content-Type': 'application/json',
