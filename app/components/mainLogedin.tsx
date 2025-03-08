@@ -1,6 +1,7 @@
 'use client'
 import React from 'react'
 import { useState,useEffect } from 'react'
+import { finished } from 'stream'
 
 const MainLogedin = () => {
   const [widhforshowing,setWidhforshowing]=useState("w-[0%]")
@@ -18,28 +19,26 @@ const MainLogedin = () => {
     setWidhforshowingbg("w-[100%]")
   }
 
-  function hidethatnote(){
+  async function hidethatnote(){
+    let fin;
     if(IsChanged==true){
-      updateOrCreateNote(chosenNote,inputText);
+      fin= await updateOrCreateNote(chosenNote,inputText);
       setUpdateNotes(updateNotes+1);
     }
-    
     setWidhforshowing("w-[0%]")
-    setTimeout(() => {
-      setInputText("")
+    if(fin){
+      setWidhforshowingbg("w-[0%]")
+    }
     
-    setWidhforshowingbg("w-[0%]")
-    }, 1000);
+   
   }
-
-
 
 
   useEffect(() => {
     async function fetchNotes() {
       try {
         const token=getCookie('token')
-        const res = await fetch("https://note-site-gules.vercel.app/api/notes", {
+        const res = await fetch("http://localhost:3000/api/notes", {
             method: "GET",
             headers: {
                 'Content-Type': 'application/json',
@@ -66,7 +65,7 @@ const MainLogedin = () => {
       try {
         const token=getCookie('token')
         console.log(token)
-        const res = await fetch("https://note-site-gules.vercel.app/api/notes", {
+        const res = await fetch("http://localhost:3000/api/notes", {
             method: "GET",
             headers: {
                 'Content-Type': 'application/json',
@@ -140,6 +139,8 @@ async function updateOrCreateNote(chosenNote:string,text:string){
 
   res=await res.json();
   console.log(res);
+  return "finised"
+
   }else{
     console.log("sended ıd "+chosenNote)
     let res =await fetch("/api/notes", {
@@ -153,6 +154,7 @@ async function updateOrCreateNote(chosenNote:string,text:string){
 
   res=await res.json();
   console.log(res);
+  return "finised"
 
   }
 
