@@ -15,7 +15,7 @@ export const GET=async(request:NextRequest)=>{
         }
         
         
-        let res=await getNotes(userid);
+        const res=await getNotes(userid);
 
         return new NextResponse(JSON.stringify({message:res}),{status:200});
   

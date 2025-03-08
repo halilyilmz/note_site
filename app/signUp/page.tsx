@@ -3,11 +3,11 @@ import React,{useState} from 'react'
 
 const Page = () => {
 
-    const [username, setUsername]=useState("");
-    const [password, setPassword]=useState("");
-    const [response, setResponse]=useState("");
-    const [email, setEmail]=useState("");
-    const [messegecolor, setMessegecolor]=useState("text-yellow-400");
+    const [username, setUsername]=useState<string>("");
+    const [password, setPassword]=useState<string>("");
+    const [response, setResponse]=useState<string>("");
+    const [email, setEmail]=useState<string>("");
+    const [messegecolor, setMessegecolor]=useState<string>("text-yellow-400");
 
     async function getmessage(){
         const res =await fetch("/api/users", {
@@ -30,7 +30,7 @@ const Page = () => {
   return (
     <div className=' h-screen flex justify-center items-center'>
     <div className="h-2/4 w-1/2 ">
-      <form  onSubmit={(e)=>{ e.preventDefault(),getmessage()}}  className="flex flex-col bg-red-700 h-full justify-center items-center rounded-xl">
+      <form  onSubmit={(e)=>{ e.preventDefault();getmessage()}}  className="flex flex-col bg-red-700 h-full justify-center items-center rounded-xl">
         <label className=" mt-3 text-center px-3 py-1  bg-black text-white">Username</label>
         <input onChange={(e)=>{setUsername(e.target.value)}} type="text" name="username" className="text-black px-1 py-0.5" />
 

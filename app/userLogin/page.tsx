@@ -24,7 +24,7 @@ const Page = () => {
   return (
     <div className=' h-screen flex justify-center items-center'>
     <div className="h-2/4 w-96  relative">
-      <form  onSubmit={(e)=>{ e.preventDefault(),getmessage()}}  className="flex flex-col bg-red-800 h-full justify-center items-center rounded-xl">
+      <form  onSubmit={(e)=>{ e.preventDefault();getmessage()}}  className="flex flex-col bg-red-800 h-full justify-center items-center rounded-xl">
         <label className="text-center px-3 py-1  bg-black text-white">Username</label>
         <input onChange={(e)=>{setUsername(e.target.value)}} type="text" name="username" className="text-black px-1 py-0.5" /> <br />
 
