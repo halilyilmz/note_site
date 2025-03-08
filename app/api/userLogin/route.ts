@@ -29,7 +29,11 @@ export const POST = async (request: NextRequest) => {
 
         return new NextResponse("loged in", {status: 200});
 
-    } catch (err: any) {
-        return new NextResponse("Error logging in: " + err.message, { status: 500 });
+    } catch (err: unknown) {
+        if (err instanceof Error) {
+            return new NextResponse("error login in" + err.message, { status: 500 });
+        }
+        return new NextResponse("error login in", { status: 500 });
     }
+    
 };

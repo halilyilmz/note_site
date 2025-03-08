@@ -22,8 +22,11 @@ export const GET=async(request:NextRequest)=>{
 
         
     }
-    catch (err:any){
-        return new NextResponse("error geting notes  " + err.message,{status:500})
+    catch (err: unknown) {
+        if (err instanceof Error) {
+            return new NextResponse("error geting note " + err.message, { status: 500 });
+        }
+        return new NextResponse("error geting note", { status: 500 });
     }
   }
   
@@ -51,9 +54,13 @@ export const POST=async(request:Request)=>{
         return new NextResponse(JSON.stringify({message:"notes created "+res}),{status:200});
 
     }
-    catch (err:any){
-        return new NextResponse("error posting notes" + err.message,{status:500})
+    catch (err: unknown) {
+        if (err instanceof Error) {
+            return new NextResponse("error posting note " + err.message, { status: 500 });
+        }
+        return new NextResponse("error posting note", { status: 500 });
     }
+    
 }
 
 export const PATCH=async (request:Request)=>{
@@ -81,12 +88,12 @@ export const PATCH=async (request:Request)=>{
         return new NextResponse(JSON.stringify({message:"notes updated "+res}),{status:200});
 
     }
-        catch (err: any) {
-            console.error("Error updating notes:", err);
-            return new NextResponse(
-              JSON.stringify({ error: "Error updating notes: " + err.message }),
-              { status: 500, headers: { "Content-Type": "application/json" } }
-            );
-          }
+    catch (err: unknown) {
+        if (err instanceof Error) {
+            return new NextResponse("error updating notes " + err.message, { status: 500 });
+        }
+        return new NextResponse("error updating notes", { status: 500 });
+    }
+    
           
 }

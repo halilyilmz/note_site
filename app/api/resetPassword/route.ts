@@ -29,9 +29,13 @@ export const POST = async (request: NextRequest) => {
         });
         return new NextResponse(JSON.stringify({message:"link sended to your email"+email}),{status:200});
     }
-    catch(err){
-        return new NextResponse(JSON.stringify({messege:"error sending email :"+err}),{status:500})
+    catch (err: unknown) {
+        if (err instanceof Error) {
+            return new NextResponse("error sending email " + err.message, { status: 500 });
+        }
+        return new NextResponse("error eror sending email", { status: 500 });
     }
+    
     
 
     
@@ -81,12 +85,11 @@ export const GET=async (request:Request)=>{
         return new NextResponse(JSON.stringify({message:"users updated ",UserName}),{status:200});
 
     }
-        catch (err: any) {
-            console.error("Error updating notes:", err);
-            return new NextResponse(
-              JSON.stringify({ error: "Error updating notes: " + err.message }),
-              { status: 500, headers: { "Content-Type": "application/json" } }
-            );
-          }
-          
+        catch (err: unknown) {
+    if (err instanceof Error) {
+        return new NextResponse("error updating notes " + err.message, { status: 500 });
+    }
+    return new NextResponse("error updating notes", { status: 500 });
+}
+
 }

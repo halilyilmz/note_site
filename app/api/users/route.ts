@@ -10,9 +10,13 @@ export const GET= async()=>{
         const users= await User.find();
         return new NextResponse(JSON.stringify(users),{status: 200});
     }
-    catch (err:any){
-        return new NextResponse("no  users found" + err.message,{status:400})
+    catch (err: unknown) {
+        if (err instanceof Error) {
+            return new NextResponse("no users found " + err.message, { status: 500 });
+        }
+        return new NextResponse("no users found", { status: 500 });
     }
+    
 
 }
 
@@ -29,7 +33,10 @@ export const POST=async(request:Request)=>{
         return new NextResponse(JSON.stringify({message:"user created"}),{status:200});
 
     }
-    catch (err:any){
-        return new NextResponse("error creating user " + err.message,{status:500})
+    catch (err: unknown) {
+        if (err instanceof Error) {
+            return new NextResponse("error creating user " + err.message, { status: 500 });
+        }
+        return new NextResponse("error creating user", { status: 500 });
     }
 }

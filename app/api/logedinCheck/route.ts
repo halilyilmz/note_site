@@ -1,8 +1,7 @@
 import { NextResponse } from "next/server"
-import { NextRequest } from "next/server";
 import connect from "@/utils/db";
 
-export const GET=async(request:NextRequest)=>{
+export const GET=async()=>{
     try{
         await connect();
 
@@ -11,8 +10,12 @@ export const GET=async(request:NextRequest)=>{
 
         
     }
-    catch (err:any){
-        return new NextResponse("error login " + err.message,{status:500})
+    catch (err: unknown) {
+        if (err instanceof Error) {
+            return new NextResponse("error login " + err.message, { status: 500 });
+        }
+        return new NextResponse("error login", { status: 500 });
     }
+    
   }
   
