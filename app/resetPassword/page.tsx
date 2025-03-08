@@ -2,8 +2,6 @@
 import React,{useState} from 'react'
 
 const Page = () => {
-
-    const [username, setUsername]=useState<string>("");
     const [newPassword, setNewPassword]=useState<string>("");
     const [response, setResponse]=useState<{message:string}>();
     const [email, setEmail]=useState<string>("");
@@ -17,7 +15,7 @@ const Page = () => {
             },
             body: JSON.stringify({ "email":email,"password":newPassword })
         });
-        let resstring=await res.json();
+        const resstring=await res.json();
         setResponse(resstring);
     }
 
