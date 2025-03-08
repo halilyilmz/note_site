@@ -1,11 +1,6 @@
 import { NextResponse } from "next/server"
 import { NextRequest } from "next/server";
-import notes from "@/models/notes";
-import { getNotes } from "@/controllers/controllers";
 import connect from "@/utils/db";
-import { get } from "http";
-import { cookies } from "next/headers";
-import { createNotes } from "@/controllers/controllers";
 
 export const GET=async(request:NextRequest)=>{
     try{

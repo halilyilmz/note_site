@@ -1,7 +1,7 @@
 import connect from "@/utils/db";
 import User from "@/models/user";
 import { NextResponse } from "next/server"
-import { hash, compare } from 'bcryptjs';
+import { hash } from 'bcryptjs';
 
 export const GET= async()=>{
     

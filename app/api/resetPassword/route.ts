@@ -1,13 +1,8 @@
-import React from 'react'
 import jwt  from 'jsonwebtoken';
 import { NextResponse,NextRequest } from 'next/server'
-import { randomBytes, randomFillSync, randomInt, randomUUID } from 'node:crypto'
 import { Resend } from 'resend';
-import mongoose from 'mongoose';
-import Notes from '@/models/notes';
 import { jwtVerify } from 'jose';
 import User from '@/models/user';
-import { emitWarning } from 'node:process';
 import connect from '@/utils/db';
 import bcrypt from 'bcryptjs';
 
