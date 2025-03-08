@@ -20,6 +20,7 @@ const Page = () => {
   useEffect(() => {
     if (token) {
       logedinCheck(token).then((res) => {
+        console.log("token : "+token)
         setIsLoggedIn(res);
       });
     }
