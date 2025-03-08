@@ -36,6 +36,8 @@ const Page = () => {
     Main = MainNotLogedin;
   }
 
+  console.log("islogedin: "+ isLoggedIn)
+
   return (
     <div className='flex flex-col min-h-screen'>
       {Navbar && <Navbar />}
