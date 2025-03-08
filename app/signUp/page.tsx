@@ -21,7 +21,7 @@ const Page = () => {
         if(resstring === "{\"message\":\"user created\"}"){
             setMessegecolor("text-green-400");
             resstring="user is created"
-            window.location.href="/homepage"
+            window.location.href="/"
         }
         setResponse(resstring);
     }

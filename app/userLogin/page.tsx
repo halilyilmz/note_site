@@ -17,6 +17,10 @@ const Page = () => {
             body: JSON.stringify({ username, password })
         });
         const resstring=await res.text();
+        if(resstring=="loged in"){
+          window.location.href="/"
+        }
+        console.log(resstring)
         setResponse(resstring);
     }
 

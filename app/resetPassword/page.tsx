@@ -16,6 +16,7 @@ const Page = () => {
             body: JSON.stringify({ "email":email,"password":newPassword })
         });
         const resstring=await res.json();
+        
         setResponse(resstring);
     }
 
