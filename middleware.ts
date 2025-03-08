@@ -5,11 +5,14 @@ const JWT_SECRET = process.env.JWT_SECRET!;  // Secret key, .env dosyasından al
 
 export default async function authMiddleware(request: NextRequest) {
     try {
+        
         const token = request.headers.get('Authorization')?.split(' ')[1];
 
         if (token===undefined) {
             return new NextResponse(JSON.stringify({ message: 'Token not found' }), { status: 401 });
         }
+
+        
 
         const secretKey = new TextEncoder().encode(JWT_SECRET); 
         const { payload } = await jwtVerify(token, secretKey);
