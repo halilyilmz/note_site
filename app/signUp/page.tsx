@@ -10,7 +10,7 @@ const Page = () => {
     const [messegecolor, setMessegecolor]=useState<string>("text-yellow-400");
 
     async function getmessage(){
-        const res =await fetch("https://note-site-gules.vercel.app/api/users", {
+        const res =await fetch("/api/users", {
             method: "POST",
             headers: {
                 'Content-Type': 'application/json'

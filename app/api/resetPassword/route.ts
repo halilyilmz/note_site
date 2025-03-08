@@ -29,7 +29,7 @@ export const POST = async (request: NextRequest) => {
             from: 'notes@resend.dev',
             to: email,
             subject: 'noReply',
-            html: `<a href="/api/resetPassword?token=${token}">dogrulamak için tiklayin</a>`
+            html: `<a href="https://note-site-gules.vercel.app/api/resetPassword?token=${token}">dogrulamak için tiklayin</a>`
         });
         return new NextResponse(JSON.stringify({message:"link sended to your email "+email}),{status:200});
     }
