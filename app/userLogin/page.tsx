@@ -36,7 +36,7 @@ const Page = () => {
           Log In
         </button>
 
-        <a className=' absolute bottom-8 right-24 font-medium text-yellow-500 underline hover:no-underline' href="">forgot your password?</a>
+        <a className=' absolute bottom-8 right-24 font-medium text-yellow-500 underline hover:no-underline' href="/resetPassword">forgot your password?</a>
         
       </form>
 

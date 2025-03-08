@@ -17,6 +17,10 @@ export const POST = async (request: NextRequest) => {
         const resend = new Resend('re_CcPWJ2pE_5CLamFZewzUs1JN4KqZnXFkV');
         const email=body.email
         const newPassword=body.password
+
+        if(typeof newPassword!="string"||typeof email!="string"){
+            return new NextResponse("incorrect password or email", { status: 500 });
+        }
         
         const token = jwt.sign({ email ,newPassword }, JWT_SECRET, { expiresIn: "5m" });
 
@@ -24,10 +28,10 @@ export const POST = async (request: NextRequest) => {
         resend.emails.send({
             from: 'notes@resend.dev',
             to: email,
-            subject: 'Hello World',
+            subject: 'noReply',
             html: `<a href="http://localhost:3000/api/resetPassword?token=${token}">dogrulamak için tiklayin</a>`
         });
-        return new NextResponse(JSON.stringify({message:"link sended to your email"+email}),{status:200});
+        return new NextResponse(JSON.stringify({message:"link sended to your email "+email}),{status:200});
     }
     catch (err: unknown) {
         if (err instanceof Error) {
@@ -62,7 +66,7 @@ export const GET=async (request:Request)=>{
 
         if (typeof payload.email !== "string" || typeof payload.newPassword !== "string") {
             return new NextResponse(
-                JSON.stringify({ message: "Invalid string or email" }),
+                JSON.stringify({ message: "Invalid password or email" }),
                 { status: 400 }
             );
         }
@@ -87,9 +91,9 @@ export const GET=async (request:Request)=>{
     }
         catch (err: unknown) {
     if (err instanceof Error) {
-        return new NextResponse("error updating notes " + err.message, { status: 500 });
+        return new NextResponse("error updating user " + err.message, { status: 500 });
     }
-    return new NextResponse("error updating notes", { status: 500 });
+    return new NextResponse("error updating user", { status: 500 });
 }
 
 }

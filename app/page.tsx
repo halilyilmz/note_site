@@ -1,10 +1,10 @@
 'use client'
 
 import React, { useState, useEffect } from 'react';
-import NavbarLogedin from '../components/navbarLogedin';
-import NavbarNotlogedin from '../components/navbarnotlogedin';
-import MainNotLogedin from '../components/mainNotLogedin';
-import MainLogedin from '../components/mainLogedin';
+import NavbarLogedin from './components/navbarLogedin';
+import NavbarNotlogedin from './components/navbarnotlogedin';
+import MainNotLogedin from './components/mainNotLogedin';
+import MainLogedin from './components/mainLogedin';
 
 const Page = () => {
   const [isLoggedIn, setIsLoggedIn] = useState<boolean | null>(null);
