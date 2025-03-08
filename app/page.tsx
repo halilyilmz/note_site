@@ -50,7 +50,7 @@ const Page = () => {
 async function logedinCheck(token: string) {
   let islogedin = false;
 
-  const res = await fetch("http://localhost:3000/api/logedinCheck", {
+  const res = await fetch("https://note-site-gules.vercel.app/api/logedinCheck", {
     method: "GET",
     headers: {
       'Content-Type': 'application/json',
