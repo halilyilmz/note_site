@@ -22,7 +22,7 @@ export default async function authMiddleware(request: NextRequest) {
 
         return response;  // Yanıtı döndür
     } catch (err:any) {
-        return new NextResponse(JSON.stringify({ message: 'Error in auth middleware: ' + err.message }), { status: 500 });
+        return new NextResponse(JSON.stringify({ message: 'Error in auth middleware: ' + err.message }), { status: 501 });
     }
 }
 
