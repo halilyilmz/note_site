@@ -39,7 +39,7 @@ const MainLogedin = () => {
     async function fetchNotes() {
       try {
         const token=getCookie('token')
-        let res = await fetch("http://localhost:3000/api/notes", {
+        const res = await fetch("http://localhost:3000/api/notes", {
             method: "GET",
             headers: {
                 'Content-Type': 'application/json',
@@ -66,7 +66,7 @@ const MainLogedin = () => {
       try {
         const token=getCookie('token')
         console.log(token)
-        let res = await fetch("http://localhost:3000/api/notes", {
+        const res = await fetch("http://localhost:3000/api/notes", {
             method: "GET",
             headers: {
                 'Content-Type': 'application/json',
