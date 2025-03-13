@@ -8,7 +8,7 @@ import { cookies } from "next/headers";
 export const POST = async (request: NextRequest) => {
     try {
         
-        const body =await  request.json();
+        const body =await request.json();
         await connect();
 
         const user = await User.findOne({username:body.username});

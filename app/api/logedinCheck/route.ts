@@ -5,8 +5,6 @@ export const GET=async()=>{
     try{
         await connect();
 
-        
-
         return new NextResponse("true",{status:200});
         
     }

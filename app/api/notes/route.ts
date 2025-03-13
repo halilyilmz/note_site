@@ -18,9 +18,6 @@ export const GET=async(request:NextRequest)=>{
         const res=await getNotes(userid);
 
         return new NextResponse(JSON.stringify({message:res}),{status:200});
-  
-
-        
     }
     catch (err: unknown) {
         if (err instanceof Error) {

@@ -10,6 +10,7 @@ if(!MONGODB_URI){
 
 const connect =async()=>{
     const connectionsSate=mongoose.connection.readyState;
+
     if(connectionsSate===1){
         console.log("allready connected")
         return;
@@ -22,7 +23,8 @@ const connect =async()=>{
 
     try{
         await mongoose.connect(MONGODB_URI,{
-            dbName:"next1restapi"
+            dbName:"next1restapi",
+            serverSelectionTimeoutMS: 5000,
         });
         console.log("connected");
     }

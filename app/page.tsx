@@ -65,7 +65,6 @@ async function logedinCheck(token: string) {
   return islogedin;
 }
 
-// Cookie'den token alma fonksiyonu (Yalnızca istemci tarafında çalışır)
 function getCookie(name: string): string | null {
   if (typeof window !== "undefined") {
     const nameLenPlus = (name.length + 1);
