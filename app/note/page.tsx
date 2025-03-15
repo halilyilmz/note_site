@@ -1,5 +1,4 @@
-"use client"
-
+'use client'
 import React, { useState, useEffect, useRef } from 'react';
 import { useSearchParams } from 'next/navigation';
 import Navbar from '../components/navbarLogedin';
@@ -22,7 +21,7 @@ const Page = () => {
     let updatedattime = " ";
 
     async function getnote(id: string) {
-      const res = await fetch(`/api/note?id=${id}`, {
+      const res = await fetch(`/api/notes/${id}`, {
         method: "GET",
         headers: {
           'Content-Type': 'application/json',
@@ -61,7 +60,7 @@ const Page = () => {
       console.log();
     });
 
-  }, [id]);
+  }, []);
 
   return (
     <>
