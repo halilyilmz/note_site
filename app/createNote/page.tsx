@@ -1,34 +1,10 @@
 'use client'
-import React, { useState, useRef, useEffect } from 'react';
+import React, { useState, useRef } from 'react';
 import Navbar from '../components/navbarLogedin';
 
 const Page = () => {
   const [text, setText] = useState("");
   const inputRef = useRef<HTMLTextAreaElement | null>(null);
-  const [updateNotesCounter, setUpdateNotesCounter] = useState(0);
-
-  useEffect(() => {
-    async function fetchNotes() {
-      try {
-        const token = getCookie("token");
-        const res = await fetch("/api/notes", {
-          method: "GET",
-          headers: {
-            'Content-Type': 'application/json',
-            'Authorization': `Bearer ${token}`,
-          },
-          credentials: "include",
-        });
-
-        const fetchedNotes = await res.json();
-        console.log(fetchedNotes.message);
-      } catch (error) {
-        console.error("Error fetching notes:", error);
-      }
-    }
-
-    fetchNotes();
-  }, [updateNotesCounter]);
 
   async function updateNote() {
     const token = getCookie("token");

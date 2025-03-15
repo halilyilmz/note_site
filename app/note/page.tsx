@@ -10,11 +10,10 @@ const Page = () => {
   const [updatedAt, setUpdatedAt] = useState("");
   const inputRef = useRef<HTMLTextAreaElement | null>(null);
   
-  let id;
-  console.log(id)
+
   const token = getCookie("token");
   const searchParams = useSearchParams();
-  id = searchParams.get("id");
+  let id= searchParams.get("id");
 
   useEffect(() => {
     let createdattime = " ";
