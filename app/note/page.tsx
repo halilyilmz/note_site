@@ -1,5 +1,5 @@
 'use client'
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef,Suspense } from 'react';
 import { useSearchParams } from 'next/navigation';
 import Navbar from '../components/navbarLogedin';
 
@@ -12,8 +12,10 @@ const Page = () => {
   
 
   const token = getCookie("token");
+
   const searchParams = useSearchParams();
   const id= searchParams.get("id");
+
   console.log(id)
 
   useEffect(() => {
@@ -63,7 +65,8 @@ const Page = () => {
   }, [id]);
 
   return (
-    <>
+
+    <Suspense fallback={<div>Loading...</div>}>
       <div className='w-screen h-screen flex flex-col'>
         {Navbar && <Navbar />}
         <div className='flex flex-col justify-center items-center w-screen flex-grow bg-gray-200 text-black'>
@@ -91,7 +94,7 @@ const Page = () => {
           </button>
         </div>
       </div>
-    </>
+      </Suspense>
   );
 }
 
