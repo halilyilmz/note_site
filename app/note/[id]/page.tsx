@@ -1,6 +1,5 @@
 'use client'
 import React, { useState, useEffect, useRef } from 'react';
-import { useSearchParams } from 'next/navigation';
 import Navbar from '../../components/navbarLogedin';
 import { useParams } from "next/navigation";
 
@@ -15,7 +14,6 @@ const Page = () => {
 
 
   const token = getCookie("token");
-  const searchParams = useSearchParams();
   console.log(id)
 
   useEffect(() => {
@@ -33,6 +31,10 @@ const Page = () => {
 
       const data = await res.json();
       return data;
+    }
+
+    if(Array.isArray(id)){
+      throw new Error("eror")
     }
 
     getnote(id!).then((data) => {
