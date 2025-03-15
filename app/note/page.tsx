@@ -13,7 +13,7 @@ const Page = () => {
 
   const token = getCookie("token");
   const searchParams = useSearchParams();
-  let id= searchParams.get("id");
+  const id= searchParams.get("id");
 
   useEffect(() => {
     let createdattime = " ";
