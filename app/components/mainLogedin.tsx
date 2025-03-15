@@ -74,7 +74,7 @@ const MainLogedin = () => {
             <div className='w-[10%] border-r-2 border-gray-900 flex justify-center items-center text-black'>{index + 1}</div>
             <div className='w-[60%] border-r-2 border-gray-900 flex justify-center items-center text-black'>{note.text}</div>
             <div className='w-[30%] flex justify-center items-center text-black'>
-              <a href={`/note?id=${note._id}`}>
+              <a href={`/note/${note._id}`}>
                 <button className='flex items-center justify-center w-10 h-10 focus:outline-none text-white bg-yellow-600 hover:bg-yellow-700 focus:ring-4 focus:ring-yellow-300 rounded-lg dark:bg-yellow-500 dark:hover:bg-yellow-600 dark:focus:ring-yellow-700'>
                   <svg className="w-[60%] h-[60%] text-black dark:text-black" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none">
                     <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M10.779 17.779 4.36 19.918 6.5 13.5m4.279 4.279 8.364-8.643a3.027 3.027 0 0 0-2.14-5.165 3.03 3.03 0 0 0-2.14.886L6.5 13.5m4.279 4.279L6.499 13.5m2.14 2.14 6.213-6.504M12.75 7.04 17 11.28" />
