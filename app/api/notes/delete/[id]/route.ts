@@ -3,11 +3,11 @@ import { NextRequest } from "next/server";
 import connect from "@/utils/db";
 import notes from "@/models/notes";
 
-export const DELETE = async (request: NextRequest, { params }: { params: { id: string } }) => {
+export const DELETE = async (request: NextRequest, context: { params: Promise<{ id: string }> }) => {
     try {
         await connect();
 
-        const { id } = params;
+        const { id } =await context.params;
 
         const deletedNote = await notes.deleteOne({ _id: id });
 

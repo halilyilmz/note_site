@@ -21,7 +21,7 @@ const Page = () => {
     let updatedattime = " ";
 
     async function getnote(id: string) {
-      const res = await fetch(`/api/note?id=${id}`, {
+      const res = await fetch(`/api/notes/${id}`, {
         method: "GET",
         headers: {
           'Content-Type': 'application/json',
