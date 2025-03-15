@@ -1,7 +1,8 @@
 'use client'
 import React, { useState, useEffect, useRef } from 'react';
 import { useSearchParams } from 'next/navigation';
-import Navbar from '../components/navbarLogedin';
+import Navbar from '../../components/navbarLogedin';
+import { useParams } from "next/navigation";
 
 const Page = () => {
   const [text, setText] = useState("");
@@ -10,10 +11,11 @@ const Page = () => {
   const [updatedAt, setUpdatedAt] = useState("");
   const inputRef = useRef<HTMLTextAreaElement | null>(null);
   
+  const { id } = useParams();
+
 
   const token = getCookie("token");
   const searchParams = useSearchParams();
-  const id= searchParams.get("id");
   console.log(id)
 
   useEffect(() => {
