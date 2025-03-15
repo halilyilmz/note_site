@@ -3,11 +3,13 @@ import { NextRequest } from "next/server";
 import connect from "@/utils/db";
 import notes from "@/models/notes";
 
-export const GET = async (request: NextRequest, { params }: { params: { id: string } }) => {
+export const GET = async (request: NextRequest) => {
     try {
-        await connect();
 
-        const { id } = params;
+        const { searchParams } = new URL(request.url);
+        const id = searchParams.get('id'); 
+
+        await connect();
 
         const userid = request.headers.get("userId");
         

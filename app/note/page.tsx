@@ -14,13 +14,14 @@ const Page = () => {
   const token = getCookie("token");
   const searchParams = useSearchParams();
   const id= searchParams.get("id");
+  console.log(id)
 
   useEffect(() => {
     let createdattime = " ";
     let updatedattime = " ";
 
     async function getnote(id: string) {
-      const res = await fetch(`/api/notes/${id}`, {
+      const res = await fetch(`/api/note?id=${id}`, {
         method: "GET",
         headers: {
           'Content-Type': 'application/json',
@@ -118,6 +119,8 @@ async function updatenote(noteId: string, text: string) {
     },
     body: JSON.stringify({ noteId: noteId, text: text })
   });
+
+  console.log(res)
 
   const resj = await res.json();
   return resj;

@@ -27,5 +27,5 @@ export default async function authMiddleware(request: NextRequest) {
 }
 
 export const config = {
-    matcher: ['/api/notes/:path*','/api/logedinCheck/:path*'], 
+    matcher: ['/api/notes/:path*','/api/logedinCheck/:path*','/api/note/:path*'], 
 };
