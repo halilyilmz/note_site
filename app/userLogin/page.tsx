@@ -33,7 +33,7 @@ const Page = () => {
             <div className="xl:w-full xl:max-w-sm 2xl:max-w-md xl:mx-auto">
               <h2 className="text-3xl font-bold leading-tight text-black sm:text-4xl">Log in to Notes</h2>
               <p className="mt-2 text-base text-gray-600">
-                Don’t have an account? <a href="#" className="font-medium text-blue-600 hover:underline">Create a free account</a>
+                Don’t have an account? <a href="/signUp" className="font-medium text-blue-600 hover:underline">Create a free account</a>
               </p>
 
               {/* Form */}
@@ -55,7 +55,7 @@ const Page = () => {
                   <div>
                     <div className="flex items-center justify-between">
                       <label className="text-base font-medium text-gray-900"> Password </label>
-                      <a href="#" className="text-sm font-medium text-blue-600 hover:underline"> Forgot password? </a>
+                      <a href="/resetPassword" className="text-sm font-medium text-blue-600 hover:underline"> Forgot password? </a>
                     </div>
                     <div className="mt-2.5">
                       <input

@@ -34,7 +34,7 @@ const Page = () => {
             <div className="xl:w-full xl:max-w-sm 2xl:max-w-md xl:mx-auto">
               <h2 className="text-3xl font-bold leading-tight text-black sm:text-4xl">Sign Up to Notes</h2>
               <p className="mt-2 text-base text-gray-600">
-                Already have an account? <a href="#" className="font-medium text-blue-600 hover:underline">Log in</a>
+                Already have an account? <a href="/userLogin" className="font-medium text-blue-600 hover:underline">Log in</a>
               </p>
 
               <form onSubmit={getmessage} className="mt-8">
