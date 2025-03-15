@@ -60,7 +60,7 @@ const Page = () => {
       console.log();
     });
 
-  }, []);
+  }, [id, token]);
 
   return (
     <>
